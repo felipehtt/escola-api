@@ -1,9 +1,9 @@
 import con from './connection.js';
 
-export async function inserirTurma(turma) {
+export async function inserirAluno(turma) {
     const comando = `
-        insert into tb_turma (nm_turma, ds_curso, nr_ano_letivo, qtd_capacidade, bt_ativo, dt_inclusao) 
-	    values (?, ?, ?, ?, ?, ?);
+
+
     `;
 
     let resposta = await con.query(comando, [turma.nome, turma.curso, turma.anoLetivo, turma.qtdCapacidade,
@@ -18,14 +18,13 @@ export async function inserirTurma(turma) {
 
 export async function consultarTurma() {
     const comando = `
-            select id_turma id,
+            select id_matricula_aluno  id,
                nm_turma          nome,
                ds_curso          curso,
                nr_ano_letivo     anoLetivo,
-               qtd_capacidade    qtdCapacidade,
+               qtd_capacidade   qtdCapacidade,
                bt_ativo          ativo,
-               dt_inclusao       dataInclusao 
-            from tb_turma
+            from tb_matricula_aluno
     `;
 
     let resposta = await con.query(comando);
@@ -80,50 +79,3 @@ export async function removerTurma(id) {
 
 }
 
-
-export async function buscarTurmaAno(ano) {
-
-    const comando = `
-
-        select id_turma id,
-               nm_turma          nome,
-               ds_curso          curso,
-               nr_ano_letivo     anoLetivo,
-               qtd_capacidade   qtdCapacidade,
-               bt_ativo          ativo,
-               dt_inclusao       dataInclusao 
-        from tb_turma
-        where nr_ano_letivo = ?
-    
-    `
-
-    let resposta = await con.query(comando, [ano])
-    let registros = resposta[0]
-
-    return registros;
-    
-}
-
-
-export async function buscarTurmaAnoECurso(ano, curso) {
-
-    const comando = ` 
-     
-        select id_turma id,
-               nm_turma          nome,
-               ds_curso          curso,
-               nr_ano_letivo     anoLetivo,
-               qtd_capacidade   qtdCapacidade,
-               bt_ativo          ativo,
-               dt_inclusao       dataInclusao 
-        from tb_turma
-        where nr_ano_letivo = ? and ds_curso = ?
-    
-    `
-
-    let resposta = await con.query(comando, [ano, curso])
-    let registros = resposta[0]
-
-    return registros;
-    
-}
