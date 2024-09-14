@@ -130,7 +130,6 @@ endpoints.get('/turma/:ano/curso', async (req, resp) => {
         
         let curso = req.query.curso
 
-
         let registros = await db.buscarTurmaAnoECurso(ano, curso);
 
         resp.send(registros);
@@ -142,6 +141,7 @@ endpoints.get('/turma/:ano/curso', async (req, resp) => {
         })
 
     }
+
 });
 
 export default endpoints;
