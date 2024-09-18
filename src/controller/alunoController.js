@@ -3,7 +3,7 @@ import consultarAlunoService from '../service/aluno/consultarAlunoService.js';
 import alterarAlunoService from '../service/aluno/alterarAlunoService.js';
 import removerAlunoService from '../service/aluno/removerAlunoService.js';
 import buscarAlunoAnoTurmaAtivoService  from '../service/aluno/buscarAlunoAnoTurmaAtivoService.js';
-import * as db from '../repository/alunoRepository.js'
+//import * as db from '../repository/alunoRepository.js'
 
 import { Router } from 'express';
 const endpoints = Router();
