@@ -1,4 +1,5 @@
 import * as db from '../repository/turmaRepository.js'
+import buscarTurmaAnoService from '../service/turma/buscarTurmaAnoService.js';
 
 import { Router } from 'express';
 const endpoints = Router();
@@ -109,7 +110,7 @@ endpoints.get('/turma/busca/ano', async (req, resp) => {
 
         let ano = req.query.ano;
 
-        let registros = await db.buscarTurmaAno(ano)
+        let registros = await buscarTurmaAnoService(ano)
 
         resp.send(registros);
 
