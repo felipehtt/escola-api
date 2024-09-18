@@ -37,7 +37,7 @@ endpoints.post('/aluno', async (req, resp) => {
 endpoints.get('/aluno', async (req, resp) => {
     try {
 
-        let registros = await db.consultarAluno();
+        let registros = await consultarAlunoService();
 
         resp.send(registros);
 
