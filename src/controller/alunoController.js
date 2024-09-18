@@ -119,10 +119,10 @@ endpoints.get('/aluno/busca', async (req, resp) => {
     try {
 
         let ano = req.query.ano;
-        let turma = req.query.turma;
+        let nomeTurma = req.query.turma;
         let alunoAtivo = req.query.alunoAtivo;
 
-        let registros = await buscarAlunoAnoTurmaAtivoService(ano, turma, alunoAtivo)
+        let registros = await buscarAlunoAnoTurmaAtivoService(ano, nomeTurma, alunoAtivo)
 
         resp.send(registros);
 

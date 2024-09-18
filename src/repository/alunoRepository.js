@@ -80,7 +80,7 @@ export async function removerAluno(id) {
 }
 
 
-export async function buscarAlunoAnoTurmaAtivo(ano, turma, ativo){
+export async function buscarAlunoAnoTurmaAtivo(ano, nomeTurma, ativo){
 
     const comando = ` 
     
@@ -97,7 +97,7 @@ export async function buscarAlunoAnoTurmaAtivo(ano, turma, ativo){
 
     `
 
-    let resposta = await con.query(comando, [ano, turma, ativo])
+    let resposta = await con.query(comando, [ano, nomeTurma, ativo])
     let registros = resposta[0]
 
     return registros;
